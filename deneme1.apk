@@ -1,0 +1,42 @@
+import tkinter as tk
+
+# Ana tkinter penceresini oluşturma
+root = tk.Tk()
+
+# Ana pencereyi gizleme (iconify) işlevi ekleme
+def on_closing():
+    root.iconify()
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
+
+# Ana pencereye bir etiket (label) ekleme
+label = tk.Label(root, text="Bu sayfa kapatılamaz!")
+label.pack()
+
+# Ana pencereyi gösterme (deiconify) işlevi ekleme
+def show_window():
+    root.deiconify()
+
+# Ana pencereyi gizleme (iconify) işlevi ekleme
+def on_closing():
+    root.iconify()
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
+
+# Ana pencereyi gösterme (deiconify) işlevi ekleme
+def show_window():
+    root.deiconify()
+
+# Ana pencereyi tam ekran yapma işlevi ekleme
+def toggle_fullscreen(event=None):
+    fullscreen = root.attributes("-fullscreen")
+    root.attributes("-fullscreen", not fullscreen)
+
+# Tam ekran modunu açmak veya kapatmak için F11 tuşuna basmayı algılama
+root.bind("<F11>", toggle_fullscreen)
+
+# Ana pencereyi tam ekran modunda açma
+root.attributes("-fullscreen", True)
+
+# Ana pencereyi gösterme
+root.mainloop()
